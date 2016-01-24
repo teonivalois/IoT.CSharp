@@ -1,5 +1,6 @@
 ﻿using IoT.CSharp.AdafruitIO;
 using IoT.CSharp.Components;
+using IoT.CSharp.Components.StepperMotors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace IoT.CSharp.Tests
 
         private readonly Led _redLed = new Led(4);
         private readonly RGBLed _rgbLed = new RGBLed(17, 27, 22);
+        private readonly IStepperMotor _stepperMotor = new SM_28BYJ_48(6, 13, 19, 26);
 
         public MyIoTClient()
             : base("teonivalois", "YOUR_KEY_HERE")
@@ -34,7 +36,6 @@ namespace IoT.CSharp.Tests
                     _rgbLed.TurnWhite();
                 else if ("BLACK".Equals(message))
                     _rgbLed.TurnOff();
-
             };
         }
 
